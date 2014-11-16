@@ -386,7 +386,7 @@ Makefile. -->
 
 <!-- Instead of using their own shell-script-like language, these .do
 scripts are just normal shell scripts. The trick is that they can call
-into `redo-ifchange`, to inform the running `redo` process that about
+into `redo-ifchange`, to inform the running `redo` process about
 dependency information.
 
 The first time a dependency is mentioned, it's recorded. If it already
@@ -409,7 +409,9 @@ use the same underlying mechanism.
 target is given, redo defaults to `all`.
 
 It looks for a .do file for the target (e.g. `all.do`). If that is
-found, it's executed, otherwise it falls back on `default.do`. -->
+found, it's executed, otherwise it falls back on `default.do`.
+For targets with an extension, like `foo.o`, it will try `foo.do`,
+then `default.o.do` (an extension-specific script), then `default.do`. -->
 
 
 #
@@ -418,11 +420,11 @@ found, it's executed, otherwise it falls back on `default.do`. -->
 + $2 basename of the target w/out extension, if any
 + $3 tmp file for target being created
 
-<!-- these scripts are always called with three arguments.
+<!-- These scripts are always called with three arguments.
 they are seemingly just as arbitrary as $@ $^ etc. in make, but
 those three are all that are needed.
 
-because of this, default.do can use a switch-case statement on $1
+default.do can use a switch-case statement on $1
 to handle several targets in the same .do file, if desired. -->
 
 
@@ -460,10 +462,11 @@ in parallel. -->
 
 <!-- Unlike make, which is distributed with Un*x, you need to download
 redo. djb hasn't released his implementation, but Avery Pennarun has a
-Python [implementation][redo] based on his design, as well as a public-
-domain implementation as a < 200 line shell script, the redo counterpart
-to Darius Bacon's ake script. It doesn't support incremental
-rebuilding, but is compatible with full redo. -->
+GPL'd Python [implementation][redo] based on djb's design. His redo repo
+also includes a public-domain implementation as a < 200 line shell
+script, the redo counterpart to Darius Bacon's ake script. It doesn't
+support incremental rebuilding, but is otherwise compatible with full
+redo. -->
 
 
 # Closing - Not just build tools
