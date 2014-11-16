@@ -18,14 +18,17 @@ with learning to use either effectively."
 
 ## Slides and presenter's notes
 
-This presentation uses [markdown_to_reveal][2] to generate [reveal.js][3]
-slides (`slides.html`) from the markdown source (`slides.md`). The
-source also has presenter's notes included as inline comments. Reading
-the `slides.md` file directly is recommended, because the slides
+This presentation uses [markdown_to_reveal][2] and [pandoc][3] to
+generate [reveal.js][4] slides (`slides.html`) from the markdown source
+(`slides.md`).
+
+The source also has presenter's notes included as inline comments.
+Reading the `slides.md` file directly is recommended, because the slides
 themselves are pretty minimal.
 
 [2]: https://github.com/silentbicycle/markdown_to_reveal
-[3]: http://lab.hakim.se/reveal-js/#/
+[3]: http://johnmacfarlane.net/pandoc/
+[4]: http://lab.hakim.se/reveal-js/#/
 
 
 ### Building
